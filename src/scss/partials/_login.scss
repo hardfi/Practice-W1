@@ -1,0 +1,103 @@
+.modal.show {
+  align-items: center !important;
+  display: flex !important;
+
+.modal-dialog {
+  opacity: 1;
+  animation: modal-anim .5s;
+  width: 450px;
+}
+  .modal-content {
+    border-radius: 10px;
+
+    .modal-header {
+      border-top-left-radius: 10px;
+      background-color: $main-color;
+      display: flex;
+      justify-content: center;
+      padding: 12px;
+      margin-top: -4px;
+
+      h4 {
+        font-family: Lato, sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        color: $font-color-first;
+        margin-top: 1px;
+        @include font-lato-regular;
+      }
+    }
+
+    .modal-body, form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .form-group {
+      @include font-lato-light;
+      margin: 0;
+
+      &:last-of-type {
+        margin-bottom: 10px;
+      }
+
+      label {
+        font-size: 12px;
+        font-weight: 300;
+        color: $font-color-second;
+        margin: 0;
+      }
+
+      input{
+        width: 350px;
+        background-color: #f2f0f0;
+        @include font-lato-regular;
+        border-radius: 10px;
+        color: $font-color-second;
+        font-size: 16px;
+        padding: 8px 12px;
+        outline: none;
+        border: none;
+      }
+    }
+
+    .btn-secondary {
+      width: 300px;
+      height: 35px;
+      border: none;
+      outline: none;
+      border-radius: 100px;
+      background-color: $main-color;
+      margin: 5px;
+      color: $font-color-first;
+      font-size: 14px;
+      cursor: pointer;
+      @include font-lato-regular;
+
+      &:nth-of-type(3) {
+        background-color: #d6d6d6;
+        margin-bottom: 14px;
+      }
+
+      &:hover {
+        color: #292b2c;
+        background-color: #e6e6e6;
+        border-color: #adadad;
+      }
+    }
+
+    .modal-body>h6 {
+      margin: -1px;
+
+      span {
+        @include font-lato-light;
+        font-size: 12px;
+        font-weight: 300;
+        color: $font-color-second;
+      }
+    }
+  }
+}

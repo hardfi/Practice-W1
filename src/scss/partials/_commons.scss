@@ -1,0 +1,35 @@
+@import "../../node_modules/slick-carousel/slick/slick.css";
+@import "../../node_modules/slick-carousel/slick/slick-theme.css";
+
+@font-face {
+    font-family: 'Lato';
+    src: url('./fonts/Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Lato-Light';
+    src: url('./fonts/Lato-Light.ttf');
+}
+
+@mixin font-lato-regular {
+  font-family: 'Lato', sans-serif;
+}
+
+@mixin font-lato-light {
+  font-family: 'Lato-Light', sans-serif;
+}
+
+@keyframes modal-anim {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+$main-color: #6d9f03;
+$font-color-first: white;
+$font-color-second: #4a4a4a;
+$font-color-third: #d6d6d6;
+
+body {
+  min-height: 670px;
+  font-family: 'Lato', sans-serif;
+}

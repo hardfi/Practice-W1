@@ -1,0 +1,18 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: $font-color-first;
+
+  .copyright {
+    font-size: 12px;
+  }
+
+  .bot-menu {
+    font-size: 14px;
+
+    div:last-of-type{
+      margin-left: 15px;
+    }
+  }
+}
