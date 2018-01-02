@@ -329,6 +329,10 @@
   font-family: 'Lato-Light';
   src: url("./fonts/Lato-Light.ttf"); }
 
+@font-face {
+  font-family: 'Lato-Bold';
+  src: url("./fonts/Lato-Bold.ttf"); }
+
 @keyframes modal-anim {
   from {
     opacity: 0; }
@@ -439,7 +443,7 @@ body {
     user-select: none;
     width: 69px;
     height: 69px;
-    z-index: 1200; }
+    z-index: 1049; }
   .sliderMainContainer .arrow-left {
     left: -12%;
     background: url("../img/left.svg") center center/cover no-repeat; }
@@ -538,42 +542,70 @@ body {
       margin-left: 15px; }
 
 .tile {
+  font-family: 'Lato', sans-serif;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   border-radius: 10px;
-  background-color: white; }
+  background-color: white;
+  color: #4a4a4a; }
+  .tile p {
+    font-family: 'Lato-Light', sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0; }
+    .tile p span {
+      font-size: 16px; }
   .tile .header {
     width: 100%;
-    display: flex; }
+    display: flex;
+    padding-bottom: 20px; }
     .tile .header .pic {
       width: 150px;
       height: 150px;
       border-top-left-radius: 10px;
       border-bottom-right-radius: 10px; }
     .tile .header .content {
-      width: 75%; }
+      width: 62%;
+      margin: 10px 25px; }
       .tile .header .content h4 {
-        font-size: 14px; }
+        font-family: 'Lato-Bold', sans-serif;
+        font-size: 16px; }
+        .tile .header .content h4 span {
+          color: #6d9f03; }
       .tile .header .content p {
-        font-size: 10px; }
-      .tile .header .content h5 {
+        height: 45px;
+        overflow: hidden; }
+      .tile .header .content h6 {
         font-size: 12px; }
   .tile .tile-title {
-    height: 40px;
+    height: 50px;
     width: 100%;
     background-color: #6d9f03;
     display: flex;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    margin-bottom: 30px; }
     .tile .tile-title h2 {
+      font-family: 'Lato-Bold', sans-serif;
       text-transform: uppercase;
-      color: white; }
+      color: white;
+      font-size: 20px;
+      margin: 0; }
   .tile .tile-body {
-    width: 100%; }
+    width: 90%;
+    margin: 0 auto; }
     .tile .tile-body .tile-row {
       display: flex;
       width: 100%;
-      justify-content: space-around; }
+      justify-content: space-around;
+      align-items: center;
+      margin: 10px auto; }
+      .tile .tile-body .tile-row > div {
+        width: 32%;
+        text-align: center; }
+      .tile .tile-body .tile-row h5 {
+        font-family: 'Lato-Bold', sans-serif;
+        font-size: 14px; }
   .tile .tile-footer {
     width: 100%; }
     .tile .tile-footer .tile-btns {

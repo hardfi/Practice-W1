@@ -11,12 +11,21 @@
     src: url('./fonts/Lato-Light.ttf');
 }
 
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url('./fonts/Lato-Bold.ttf');
+}
+
 @mixin font-lato-regular {
   font-family: 'Lato', sans-serif;
 }
 
 @mixin font-lato-light {
   font-family: 'Lato-Light', sans-serif;
+}
+
+@mixin font-lato-bold {
+  font-family: 'Lato-Bold', sans-serif;
 }
 
 @keyframes modal-anim {

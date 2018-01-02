@@ -15137,6 +15137,10 @@ var _Footer = __webpack_require__(212);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
+var _People = __webpack_require__(221);
+
+var _People2 = _interopRequireDefault(_People);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -15165,7 +15169,7 @@ var App = function (_React$Component) {
           _reactstrap.Container,
           null,
           _react2.default.createElement(_Search2.default, null),
-          _react2.default.createElement(_Slider2.default, null)
+          _react2.default.createElement(_Slider2.default, { people: _People2.default })
         ),
         _react2.default.createElement(_Footer2.default, null)
       );
@@ -30123,6 +30127,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactstrap = __webpack_require__(21);
 
+var _SingleTile = __webpack_require__(220);
+
+var _SingleTile2 = _interopRequireDefault(_SingleTile);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30130,6 +30138,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var tile5 = 4,
+    tile1 = 0,
+    tile2 = 1,
+    tile3 = 2,
+    tile4 = 3;
 
 var MainSlider = function (_React$Component) {
   _inherits(MainSlider, _React$Component);
@@ -30141,22 +30155,37 @@ var MainSlider = function (_React$Component) {
 
     _this.handleNext = function () {
       var list = _this.state.list;
-      var slideRight = Number(_this.state.slideNumberRight) + 1;
-      var slideLeft = Number(_this.state.slideNumberLeft) + 1;
+      var slideLeft = Number(_this.state.slideNumberLeft) - 1;
+      var slideRight = Number(_this.state.slideNumberRight) - 1;
 
-      if (slideRight === list.length) {
-        slideRight = 0;
+      if (slideLeft === -1) {
+        slideLeft = list.length - 1;
       }
 
-      if (slideLeft === list.length) {
-        slideLeft = 0;
+      if (slideRight === -1) {
+        slideRight = list.length - 1;
       }
 
-      var getListItem = function getListItem() {
-        var firstDiv = document.querySelector('.slide1').innerHTML = _this.state.list[slideRight].content;
-      };
-      getListItem();
+      // changing current lefthand slide which is hidden
+      switch (document.querySelector('.slide1').className) {
+        case 'sliderItem tile2 slide1':
+          tile2 = slideLeft;
+          break;
+        case 'sliderItem tile3 slide1':
+          tile3 = slideLeft;
+          break;
+        case 'sliderItem tile4 slide1':
+          tile4 = slideLeft;
+          break;
+        case 'sliderItem tile5 slide1':
+          tile5 = slideLeft;
+          break;
+        case 'sliderItem tile1 slide1':
+          tile1 = slideLeft;
+          break;
+      }
 
+      // carousel move right
       var count = function count(counter) {
         var number = Number(counter);
         if (number + 1 === 6) {
@@ -30179,21 +30208,34 @@ var MainSlider = function (_React$Component) {
 
     _this.handlePrev = function () {
       var list = _this.state.list;
-      var slideLeft = Number(_this.state.slideNumberLeft) - 1;
-      var slideRight = Number(_this.state.slideNumberRight) - 1;
+      var slideRight = Number(_this.state.slideNumberRight) + 1;
+      var slideLeft = Number(_this.state.slideNumberLeft) + 1;
 
-      if (slideLeft === -1) {
-        slideLeft = list.length - 1;
+      if (slideRight === list.length) {
+        slideRight = 0;
       }
 
-      if (slideRight === -1) {
-        slideRight = list.length - 1;
+      if (slideLeft === list.length) {
+        slideLeft = 0;
       }
 
-      var getListItem = function getListItem() {
-        var firstDiv = document.querySelector('.slide5').innerHTML = _this.state.list[slideLeft].content;
-      };
-      getListItem();
+      switch (document.querySelector('.slide5').className) {
+        case 'sliderItem tile2 slide5':
+          tile2 = slideRight;
+          break;
+        case 'sliderItem tile3 slide5':
+          tile3 = slideRight;
+          break;
+        case 'sliderItem tile4 slide5':
+          tile4 = slideRight;
+          break;
+        case 'sliderItem tile5 slide5':
+          tile5 = slideRight;
+          break;
+        case 'sliderItem tile1 slide5':
+          tile1 = slideRight;
+          break;
+      }
 
       var count = function count(counter) {
         var number = Number(counter);
@@ -30215,21 +30257,8 @@ var MainSlider = function (_React$Component) {
       });
     };
 
-    _this.slidesAsButtons = function () {
-      document.querySelector('.slide4').addEventListener('click', function () {
-        _this.handlePrev();
-        console.log('listener prev yes');
-        console.log(_this.state.slideNumberRight, _this.state.slideNumberLeft);
-      });
-
-      document.querySelector('.slide2').addEventListener('click', function () {
-        _this.handleNext();
-        console.log('listener next yes');
-      });
-    };
-
     _this.state = {
-      list: [{ content: 'content 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 5 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 6 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 7 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 8 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 9 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 923f32f' }, { content: 'content 9dwedwed2' }, { content: 'content 9f54h65h76h' }],
+      list: _this.props.people,
       slideNumberLeft: '1',
       slideNumberRight: '3',
       one: '1',
@@ -30242,14 +30271,30 @@ var MainSlider = function (_React$Component) {
   }
 
   _createClass(MainSlider, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.slidesAsButtons();
-    }
-  }, {
     key: 'render',
+
+
+    // making side slides clickable
+    //
+    // slidesAsButtons = () => {
+    //   document.querySelector('.slide4').addEventListener('click', () => {
+    //     this.handlePrev();
+    //     console.log('listener prev yes');
+    //     console.log(this.state.slideNumberRight, this.state.slideNumberLeft);
+    //   });
+    //
+    //   document.querySelector('.slide2').addEventListener('click', () => {
+    //     this.handleNext();
+    //     console.log('listener next yes');
+    //   });
+    // }
+
+    // componentDidMount() {
+    //   this.slidesAsButtons();
+    // }
+
     value: function render() {
-      if (this.state.list != '') {
+      if (this.state.list) {
         return _react2.default.createElement(
           _reactstrap.Row,
           { style: { paddingTop: '5vh' } },
@@ -30265,194 +30310,32 @@ var MainSlider = function (_React$Component) {
                 { className: 'sliderMain' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'sliderItem slide' + this.state.one },
-                  this.state.list[0].content
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'sliderItem slide' + this.state.two },
-                  this.state.list[1].content
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'sliderItem slide' + this.state.three },
+                  { className: 'plate1' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'tile' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'header' },
-                      _react2.default.createElement('div', { className: 'pic', style: {
-                          background: "url('./dist/img/people.jpg') center center /cover no-repeat"
-                        } }),
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'content' },
-                        _react2.default.createElement(
-                          'h4',
-                          null,
-                          'Na sztywno'
-                        ),
-                        _react2.default.createElement(
-                          'p',
-                          null,
-                          'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-                        ),
-                        _react2.default.createElement(
-                          'div',
-                          null,
-                          ' X X X X '
-                        ),
-                        _react2.default.createElement(
-                          'h5',
-                          null,
-                          'Ocena co\u015B tam'
-                        )
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'tile-title' },
-                      _react2.default.createElement(
-                        'h2',
-                        null,
-                        'Programista'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'tile-body' },
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'tile-row' },
-                        _react2.default.createElement(
-                          'div',
-                          null,
-                          _react2.default.createElement(
-                            'h5',
-                            null,
-                            'test'
-                          ),
-                          _react2.default.createElement(
-                            'p',
-                            null,
-                            'te\u015Bcik'
-                          )
-                        ),
-                        _react2.default.createElement(
-                          'div',
-                          null,
-                          _react2.default.createElement(
-                            'h5',
-                            null,
-                            'test'
-                          ),
-                          _react2.default.createElement(
-                            'p',
-                            null,
-                            'te\u015Bcik'
-                          )
-                        ),
-                        _react2.default.createElement(
-                          'div',
-                          null,
-                          _react2.default.createElement(
-                            'h5',
-                            null,
-                            'test'
-                          ),
-                          _react2.default.createElement(
-                            'p',
-                            null,
-                            'te\u015Bcik'
-                          )
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'tile-row' },
-                        _react2.default.createElement(
-                          'div',
-                          null,
-                          _react2.default.createElement(
-                            'h5',
-                            null,
-                            'test'
-                          ),
-                          _react2.default.createElement(
-                            'p',
-                            null,
-                            'te\u015Bcik'
-                          )
-                        ),
-                        _react2.default.createElement(
-                          'div',
-                          null,
-                          _react2.default.createElement(
-                            'h5',
-                            null,
-                            'test'
-                          ),
-                          _react2.default.createElement(
-                            'p',
-                            null,
-                            'te\u015Bcik'
-                          )
-                        ),
-                        _react2.default.createElement(
-                          'div',
-                          null,
-                          _react2.default.createElement(
-                            'h5',
-                            null,
-                            'test'
-                          ),
-                          _react2.default.createElement(
-                            'p',
-                            null,
-                            'te\u015Bcik'
-                          )
-                        )
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'tile-footer' },
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'tile-btns' },
-                        _react2.default.createElement(
-                          _reactstrap.Button,
-                          null,
-                          'Zobacz pe\u0142ny opis'
-                        ),
-                        _react2.default.createElement(
-                          'div',
-                          { className: 'btns-row2' },
-                          _react2.default.createElement(
-                            _reactstrap.Button,
-                            null,
-                            'Dodaj do katalogu'
-                          ),
-                          _react2.default.createElement(
-                            _reactstrap.Button,
-                            null,
-                            'Dodaj do kosza'
-                          )
-                        )
-                      )
-                    )
+                    { className: 'sliderItem tile1 slide' + this.state.one },
+                    _react2.default.createElement(_SingleTile2.default, { person: this.state.list[tile1] })
                   )
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'sliderItem slide' + this.state.four },
-                  this.state.list[3].content
+                  { className: 'sliderItem tile2 slide' + this.state.two },
+                  _react2.default.createElement(_SingleTile2.default, { person: this.state.list[tile2] })
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'sliderItem slide' + this.state.five },
-                  this.state.list[4].content
+                  { className: 'sliderItem tile3 slide' + this.state.three },
+                  _react2.default.createElement(_SingleTile2.default, { person: this.state.list[tile3] })
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'sliderItem tile4 slide' + this.state.four },
+                  _react2.default.createElement(_SingleTile2.default, { person: this.state.list[tile4] })
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'sliderItem tile5 slide' + this.state.five },
+                  _react2.default.createElement(_SingleTile2.default, { person: this.state.list[tile5] })
                 )
               ),
               _react2.default.createElement('div', { className: 'arrow-left', onClick: this.handlePrev }),
@@ -30853,6 +30736,381 @@ exports.default = Footer;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(8);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactstrap = __webpack_require__(21);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SingleTile = function (_React$Component) {
+  _inherits(SingleTile, _React$Component);
+
+  function SingleTile() {
+    _classCallCheck(this, SingleTile);
+
+    return _possibleConstructorReturn(this, (SingleTile.__proto__ || Object.getPrototypeOf(SingleTile)).apply(this, arguments));
+  }
+
+  _createClass(SingleTile, [{
+    key: 'render',
+    value: function render() {
+      // {
+      //   switch (this.props.person.rating) {
+      //     case '0':
+      //       return (
+      //         <div> zero </div>
+      //       )
+      //       break;
+      //     case '1':
+      //       return (
+      //         <div> jeden </div>
+      //       )
+      //       break;
+      //     case '2':
+      //       return (
+      //         <div> dwa </div>
+      //       )
+      //       break;
+      //   }
+      // }
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'tile' },
+        _react2.default.createElement(
+          'div',
+          { className: 'header' },
+          _react2.default.createElement('div', { className: 'pic', style: {
+              background: 'url(' + this.props.person.picture + ') center center /cover no-repeat'
+            } }),
+          _react2.default.createElement(
+            'div',
+            { className: 'content' },
+            _react2.default.createElement(
+              'h4',
+              null,
+              'Profil zweryfikowany przez: ',
+              _react2.default.createElement(
+                'span',
+                null,
+                this.props.person.verified
+              )
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              this.props.person.description
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              'empty'
+            ),
+            _react2.default.createElement(
+              'h6',
+              null,
+              '\u015Arednia ocena: ',
+              this.props.person.rating
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'tile-title' },
+          _react2.default.createElement(
+            'h2',
+            null,
+            this.props.person.title
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'tile-body' },
+          _react2.default.createElement(
+            'div',
+            { className: 'tile-row' },
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'h5',
+                null,
+                'Bran\u017Ca:'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                this.props.person.industry
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'h5',
+                null,
+                'Destynacja:'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                this.props.person.destination
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'h5',
+                null,
+                'Wynagrodzenie:'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                this.props.person.salary
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'tile-row' },
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'h5',
+                null,
+                'Dost\u0119pno\u015B\u0107:'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                this.props.person.availability
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'h5',
+                null,
+                'J\u0119zyki'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                this.props.person.languages
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'h5',
+                null,
+                'Cena za zweryfikowany profil:'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                _react2.default.createElement(
+                  'span',
+                  null,
+                  this.props.person.price
+                )
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'tile-footer' },
+          _react2.default.createElement(
+            'div',
+            { className: 'tile-btns' },
+            _react2.default.createElement(
+              _reactstrap.Button,
+              null,
+              'Zobacz pe\u0142ny opis'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'btns-row2' },
+              _react2.default.createElement(
+                _reactstrap.Button,
+                null,
+                'Dodaj do katalogu'
+              ),
+              _react2.default.createElement(
+                _reactstrap.Button,
+                null,
+                'Dodaj do kosza'
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return SingleTile;
+}(_react2.default.Component);
+
+exports.default = SingleTile;
+
+/***/ }),
+/* 221 */
+/***/ (function(module, exports) {
+
+module.exports = [
+  {
+    picture: './dist/img/people.jpg',
+    verified: 'Jeden',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+    rating: '2',
+    title: 'programista',
+    industry: 'IT - Rozwój oprogramowania',
+    destination: 'Zdalnie',
+    salary: '12000',
+    availability: 'za miesiąc',
+    languages: 'Angielski, Polski',
+    price: '500zł',
+  },
+  {
+    picture: './dist/img/people.jpg',
+    verified: 'Dwa',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+    rating: '2',
+    title: 'programista',
+    industry: 'IT - Rozwój oprogramowania',
+    destination: 'Zdalnie',
+    salary: '12000',
+    availability: 'za miesiąc',
+    languages: 'Angielski, Polski',
+    price: '500zł',
+  },
+  {
+    picture: './dist/img/people.jpg',
+    verified: 'Trzy',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+    rating: '2',
+    title: 'programista',
+    industry: 'IT - Rozwój oprogramowania',
+    destination: 'Zdalnie',
+    salary: '12000',
+    availability: 'za miesiąc',
+    languages: 'Angielski, Polski',
+    price: '500zł',
+  },
+  {
+    picture: './dist/img/people.jpg',
+    verified: 'Cztery',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+    rating: '2',
+    title: 'programista',
+    industry: 'IT - Rozwój oprogramowania',
+    destination: 'Zdalnie',
+    salary: '12000',
+    availability: 'za miesiąc',
+    languages: 'Angielski, Polski',
+    price: '500zł',
+  },
+  {
+    picture: './dist/img/people.jpg',
+    verified: 'Pięć',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+    rating: '2',
+    title: 'programista',
+    industry: 'IT - Rozwój oprogramowania',
+    destination: 'Zdalnie',
+    salary: '12000',
+    availability: 'za miesiąc',
+    languages: 'Angielski, Polski',
+    price: '500zł',
+  },
+  {
+    picture: './dist/img/people.jpg',
+    verified: 'Sześć',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+    rating: '2',
+    title: 'programista',
+    industry: 'IT - Rozwój oprogramowania',
+    destination: 'Zdalnie',
+    salary: '12000',
+    availability: 'za miesiąc',
+    languages: 'Angielski, Polski',
+    price: '500zł',
+  },
+  {
+    picture: './dist/img/people.jpg',
+    verified: 'Siedem',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+    rating: '2',
+    title: 'programista',
+    industry: 'IT - Rozwój oprogramowania',
+    destination: 'Zdalnie',
+    salary: '12000',
+    availability: 'za miesiąc',
+    languages: 'Angielski, Polski',
+    price: '500zł',
+  },
+  {
+    picture: './dist/img/people.jpg',
+    verified: 'Osiem',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+    rating: '2',
+    title: 'programista',
+    industry: 'IT - Rozwój oprogramowania',
+    destination: 'Zdalnie',
+    salary: '12000',
+    availability: 'za miesiąc',
+    languages: 'Angielski, Polski',
+    price: '500zł',
+  },
+  {
+    picture: './dist/img/people.jpg',
+    verified: 'Dziewięć',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+    rating: '2',
+    title: 'programista',
+    industry: 'IT - Rozwój oprogramowania',
+    destination: 'Zdalnie',
+    salary: '12000',
+    availability: 'za miesiąc',
+    languages: 'Angielski, Polski',
+    price: '500zł',
+  }
+]
+
 
 /***/ })
 /******/ ]);

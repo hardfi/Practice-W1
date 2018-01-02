@@ -1,12 +1,26 @@
 .tile {
+  @include font-lato-regular;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   border-radius: 10px;
   background-color: white;
+  color: $font-color-second;
+
+  p {
+    @include font-lato-light;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0;
+
+    span {
+      font-size: 16px;
+    }
+  }
 
   .header {
     width: 100%;
     display: flex;
+    padding-bottom: 20px;
 
     .pic {
       width: 150px;
@@ -16,43 +30,67 @@
     }
 
     .content {
-      width: 75%;
+      width: 62%;
+      margin: 10px 25px;
 
       h4 {
-        font-size: 14px;
+        @include font-lato-bold;
+        font-size: 16px;
+
+        span {
+          color: $main-color;
+        }
       }
 
       p {
-        font-size: 10px;
+        height: 45px;
+        overflow: hidden;
       }
 
-      h5 {
+      h6 {
         font-size: 12px;
       }
     }
   }
 
   .tile-title {
-    height: 40px;
+    height: 50px;
     width: 100%;
     background-color: $main-color;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
 
     h2 {
+      @include font-lato-bold;
       text-transform: uppercase;
       color: $font-color-first;
+      font-size: 20px;
+      margin: 0;
     }
   }
 
   .tile-body {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
 
     .tile-row {
       display: flex;
       width: 100%;
       justify-content: space-around;
+      align-items: center;
+      margin: 10px auto;
+
+      &>div {
+        width: 32%;
+        text-align: center;
+      }
+
+      h5 {
+        @include font-lato-bold;
+        font-size: 14px;
+      }
     }
   }
 

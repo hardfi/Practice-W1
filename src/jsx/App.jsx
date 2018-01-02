@@ -5,6 +5,7 @@ import MainSlider from './Slider/Slider.jsx';
 import Navigation from './Navigation/Navigation.jsx';
 import SearchField from './Search/Search.jsx';
 import Footer from './Footer/Footer.jsx';
+import people from './People/People.js';
 
 class App extends React.Component{
   render(){
@@ -13,7 +14,7 @@ class App extends React.Component{
         <Navigation />
         <Container>
           <SearchField />
-          <MainSlider />
+          <MainSlider people={people}/>
         </Container>
         <Footer/>
       </div>
