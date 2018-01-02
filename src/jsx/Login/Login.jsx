@@ -18,7 +18,7 @@ class LoginModal extends React.Component {
                   value={this.props.email}
                   />
               </FormGroup>
-              <FormGroup validationState="success">
+              <FormGroup>
                 <Label>Hasło</Label>
                 <Input type='password'
                   name='password'
