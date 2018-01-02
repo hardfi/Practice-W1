@@ -106,6 +106,23 @@ class MainSlider extends React.Component{
 
   }
 
+  slidesAsButtons = () => {
+    document.querySelector('.slide4').addEventListener('click', () => {
+      this.handlePrev();
+      console.log('listener prev yes');
+      console.log(this.state.slideNumberRight, this.state.slideNumberLeft);
+    });
+
+    document.querySelector('.slide2').addEventListener('click', () => {
+      this.handleNext();
+      console.log('listener next yes');
+    });
+  }
+
+  componentDidMount() {
+    this.slidesAsButtons();
+  }
+
   render(){
     if (this.state.list != '') {
       return (
@@ -116,7 +133,65 @@ class MainSlider extends React.Component{
               <div className='sliderMain'>
                 <div className={`sliderItem slide${this.state.one}`}>{this.state.list[0].content}</div>
                 <div className={`sliderItem slide${this.state.two}`}>{this.state.list[1].content}</div>
-                <div className={`sliderItem slide${this.state.three}`}>{this.state.list[2].content}</div>
+                <div className={`sliderItem slide${this.state.three}`}>
+
+                  <div className='tile'>
+                    <div className='header'>
+                      <div className='pic' style={{
+                          background: "url('./dist/img/people.jpg') center center /cover no-repeat"
+                        }}></div>
+                      <div className='content'>
+                        <h4>Na sztywno</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <div> X X X X </div>
+                        <h5>Ocena coś tam</h5>
+                      </div>
+                    </div>
+                    <div className='tile-title'>
+                      <h2>Programista</h2>
+                    </div>
+                    <div className='tile-body'>
+                      <div className='tile-row'>
+                        <div>
+                          <h5>test</h5>
+                          <p>teścik</p>
+                        </div>
+                        <div>
+                          <h5>test</h5>
+                          <p>teścik</p>
+                        </div>
+                        <div>
+                          <h5>test</h5>
+                          <p>teścik</p>
+                        </div>
+                      </div>
+                      <div className='tile-row'>
+                        <div>
+                          <h5>test</h5>
+                          <p>teścik</p>
+                        </div>
+                        <div>
+                          <h5>test</h5>
+                          <p>teścik</p>
+                        </div>
+                        <div>
+                          <h5>test</h5>
+                          <p>teścik</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className='tile-footer'>
+                      <div className='tile-btns'>
+                        <Button>Zobacz pełny opis</Button>
+                        <div className='btns-row2'>
+                          <Button>Dodaj do katalogu</Button>
+                          <Button>Dodaj do kosza</Button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
                 <div className={`sliderItem slide${this.state.four}`}>{this.state.list[3].content}</div>
                 <div className={`sliderItem slide${this.state.five}`}>{this.state.list[4].content}</div>
               </div>

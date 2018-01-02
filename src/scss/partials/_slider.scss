@@ -13,14 +13,11 @@
     .sliderItem {
       height: 465px;
       width: 532px;
-      background-color: #ff6bc5;
-      border: 2px solid black;
-      transform: scale(0.5);
       display: inline-block;
       z-index: 1;
       position: absolute;
       transition: all .5s;
-      transform: translateX(-50%) scale(0.5);
+      transform: translateX(-50%) scale(0.7);
 
       &.slide1 {
         left: 30%;
@@ -29,7 +26,7 @@
       }
 
       &.slide2 {
-        left: 18%;
+        left: 21%;
         opacity: 0.4;
       }
 
@@ -40,7 +37,7 @@
       }
 
       &.slide4 {
-        left: 82%;
+        left: 79%;
         opacity: 0.4;
       }
 

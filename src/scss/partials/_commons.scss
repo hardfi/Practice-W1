@@ -33,3 +33,22 @@ body {
   min-height: 670px;
   font-family: 'Lato', sans-serif;
 }
+
+@mixin btn {
+  @include font-lato-regular;
+  border: none;
+  outline: none;
+  border-radius: 100px;
+  background-color: $main-color;
+  color: $font-color-first;
+  font-size: 14px;
+  cursor: pointer;
+  height: 35px;
+  margin: 5px;
+
+  &:hover {
+    color: #292b2c;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+  }
+}

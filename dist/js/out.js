@@ -30215,6 +30215,19 @@ var MainSlider = function (_React$Component) {
       });
     };
 
+    _this.slidesAsButtons = function () {
+      document.querySelector('.slide4').addEventListener('click', function () {
+        _this.handlePrev();
+        console.log('listener prev yes');
+        console.log(_this.state.slideNumberRight, _this.state.slideNumberLeft);
+      });
+
+      document.querySelector('.slide2').addEventListener('click', function () {
+        _this.handleNext();
+        console.log('listener next yes');
+      });
+    };
+
     _this.state = {
       list: [{ content: 'content 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 5 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 6 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 7 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 8 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 9 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }, { content: 'content 923f32f' }, { content: 'content 9dwedwed2' }, { content: 'content 9f54h65h76h' }],
       slideNumberLeft: '1',
@@ -30229,6 +30242,11 @@ var MainSlider = function (_React$Component) {
   }
 
   _createClass(MainSlider, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.slidesAsButtons();
+    }
+  }, {
     key: 'render',
     value: function render() {
       if (this.state.list != '') {
@@ -30258,7 +30276,173 @@ var MainSlider = function (_React$Component) {
                 _react2.default.createElement(
                   'div',
                   { className: 'sliderItem slide' + this.state.three },
-                  this.state.list[2].content
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'tile' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'header' },
+                      _react2.default.createElement('div', { className: 'pic', style: {
+                          background: "url('./dist/img/people.jpg') center center /cover no-repeat"
+                        } }),
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'content' },
+                        _react2.default.createElement(
+                          'h4',
+                          null,
+                          'Na sztywno'
+                        ),
+                        _react2.default.createElement(
+                          'p',
+                          null,
+                          'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          null,
+                          ' X X X X '
+                        ),
+                        _react2.default.createElement(
+                          'h5',
+                          null,
+                          'Ocena co\u015B tam'
+                        )
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'tile-title' },
+                      _react2.default.createElement(
+                        'h2',
+                        null,
+                        'Programista'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'tile-body' },
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'tile-row' },
+                        _react2.default.createElement(
+                          'div',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'test'
+                          ),
+                          _react2.default.createElement(
+                            'p',
+                            null,
+                            'te\u015Bcik'
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'test'
+                          ),
+                          _react2.default.createElement(
+                            'p',
+                            null,
+                            'te\u015Bcik'
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'test'
+                          ),
+                          _react2.default.createElement(
+                            'p',
+                            null,
+                            'te\u015Bcik'
+                          )
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'tile-row' },
+                        _react2.default.createElement(
+                          'div',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'test'
+                          ),
+                          _react2.default.createElement(
+                            'p',
+                            null,
+                            'te\u015Bcik'
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'test'
+                          ),
+                          _react2.default.createElement(
+                            'p',
+                            null,
+                            'te\u015Bcik'
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'test'
+                          ),
+                          _react2.default.createElement(
+                            'p',
+                            null,
+                            'te\u015Bcik'
+                          )
+                        )
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'tile-footer' },
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'tile-btns' },
+                        _react2.default.createElement(
+                          _reactstrap.Button,
+                          null,
+                          'Zobacz pe\u0142ny opis'
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          { className: 'btns-row2' },
+                          _react2.default.createElement(
+                            _reactstrap.Button,
+                            null,
+                            'Dodaj do katalogu'
+                          ),
+                          _react2.default.createElement(
+                            _reactstrap.Button,
+                            null,
+                            'Dodaj do kosza'
+                          )
+                        )
+                      )
+                    )
+                  )
                 ),
                 _react2.default.createElement(
                   'div',

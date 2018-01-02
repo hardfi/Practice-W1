@@ -65,27 +65,14 @@
     }
 
     .btn-secondary {
+      @include btn;
       width: 300px;
       height: 35px;
-      border: none;
-      outline: none;
-      border-radius: 100px;
-      background-color: $main-color;
       margin: 5px;
-      color: $font-color-first;
-      font-size: 14px;
-      cursor: pointer;
-      @include font-lato-regular;
 
       &:nth-of-type(3) {
         background-color: #d6d6d6;
         margin-bottom: 14px;
-      }
-
-      &:hover {
-        color: #292b2c;
-        background-color: #e6e6e6;
-        border-color: #adadad;
       }
     }
 
