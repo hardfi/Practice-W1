@@ -10,7 +10,7 @@ class LoginModal extends React.Component {
           <ModalHeader>Logowanie</ModalHeader>
           <ModalBody>
             <Form action="https://foodsi-stage.applover.pl/api/v1/auth" method="POST">
-              <FormGroup validationState="success">
+              <FormGroup>
                 <Label>Email</Label>
                 <Input type='email'
                   name='email'

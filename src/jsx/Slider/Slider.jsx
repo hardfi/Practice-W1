@@ -27,7 +27,7 @@ class MainSlider extends React.Component{
   handleNext = () => {
     const list = this.state.list
 
-    // updating visible slides: left - right (eg. 1 -5, 2 - 6 etc.)
+    // updating visible slides: left - right (eg. 1-5, 2-6 etc.)
     let slideLeft = Number(this.state.slideNumberLeft) - 1;
     let slideRight = Number(this.state.slideNumberRight) - 1;
 
@@ -128,13 +128,12 @@ class MainSlider extends React.Component{
       four: count(this.state.four),
       five: count(this.state.five)
     })
-
   }
 
   render(){
     if (this.state.list) {
       return (
-        <Row style={{paddingTop: '12%'}}>
+        <Row style={{paddingTop: '10%'}}>
           <Col md={1}></Col>
           <Col xs={12} md={10}>
             <div className='sliderMainContainer'>

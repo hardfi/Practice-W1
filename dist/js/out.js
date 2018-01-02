@@ -30157,7 +30157,7 @@ var MainSlider = function (_React$Component) {
     _this.handleNext = function () {
       var list = _this.state.list;
 
-      // updating visible slides: left - right (eg. 1 -5, 2 - 6 etc.)
+      // updating visible slides: left - right (eg. 1-5, 2-6 etc.)
       var slideLeft = Number(_this.state.slideNumberLeft) - 1;
       var slideRight = Number(_this.state.slideNumberRight) - 1;
 
@@ -30279,7 +30279,7 @@ var MainSlider = function (_React$Component) {
       if (this.state.list) {
         return _react2.default.createElement(
           _reactstrap.Row,
-          { style: { paddingTop: '12%' } },
+          { style: { paddingTop: '10%' } },
           _react2.default.createElement(_reactstrap.Col, { md: 1 }),
           _react2.default.createElement(
             _reactstrap.Col,
@@ -30487,7 +30487,7 @@ var LoginModal = function (_React$Component) {
               { action: 'https://foodsi-stage.applover.pl/api/v1/auth', method: 'POST' },
               _react2.default.createElement(
                 _reactstrap.FormGroup,
-                { validationState: 'success' },
+                null,
                 _react2.default.createElement(
                   _reactstrap.Label,
                   null,
@@ -30597,10 +30597,10 @@ var SearchField = function (_React$Component) {
       return _react2.default.createElement(
         _reactstrap.Row,
         { className: 'align-items-center', style: { height: "15vh", minHeight: "100px" } },
-        _react2.default.createElement(_reactstrap.Col, { xs: 2 }),
+        _react2.default.createElement(_reactstrap.Col, { md: 1, lg: 2 }),
         _react2.default.createElement(
           _reactstrap.Col,
-          { xs: 8 },
+          { md: 10, lg: 8, xs: 12 },
           _react2.default.createElement(
             'div',
             { className: 'search' },
@@ -30617,7 +30617,7 @@ var SearchField = function (_React$Component) {
             )
           )
         ),
-        _react2.default.createElement(_reactstrap.Col, { xs: 2 })
+        _react2.default.createElement(_reactstrap.Col, { md: 1, lg: 2 })
       );
     }
   }]);
@@ -30764,7 +30764,6 @@ var SingleTile = function (_React$Component) {
   _createClass(SingleTile, [{
     key: 'render',
     value: function render() {
-
       return _react2.default.createElement(
         'div',
         { className: 'tile' },

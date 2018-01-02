@@ -4,7 +4,6 @@ import Rating from '../Rating/Rating.jsx';
 
 class SingleTile extends React.Component {
   render(){
-
     return (
       <div className='tile'>
         <div className='header'>
