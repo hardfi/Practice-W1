@@ -20,7 +20,7 @@
   .header {
     width: 100%;
     display: flex;
-    padding-bottom: 20px;
+    padding-bottom: 12px;
 
     .pic {
       width: 150px;
@@ -47,8 +47,19 @@
         overflow: hidden;
       }
 
+      .rating {
+        height: 58px;
+
+        img {
+          width: 25px;
+          height: 25px;
+          margin: 15px 15px 15px 0;
+        }
+      }
+
       h6 {
         font-size: 12px;
+        margin-bottom: 0;
       }
     }
   }

@@ -30279,7 +30279,7 @@ var MainSlider = function (_React$Component) {
       if (this.state.list) {
         return _react2.default.createElement(
           _reactstrap.Row,
-          { style: { paddingTop: '5vh' } },
+          { style: { paddingTop: '12%' } },
           _react2.default.createElement(_reactstrap.Col, { md: 1 }),
           _react2.default.createElement(
             _reactstrap.Col,
@@ -30292,12 +30292,8 @@ var MainSlider = function (_React$Component) {
                 { className: 'sliderMain' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'plate1' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'sliderItem tile1 slide' + this.state.one },
-                    _react2.default.createElement(_SingleTile2.default, { person: this.state.list[tile1] })
-                  )
+                  { className: 'sliderItem tile1 slide' + this.state.one },
+                  _react2.default.createElement(_SingleTile2.default, { person: this.state.list[tile1] })
                 ),
                 _react2.default.createElement(
                   'div',
@@ -30744,6 +30740,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactstrap = __webpack_require__(21);
 
+var _Rating = __webpack_require__(222);
+
+var _Rating2 = _interopRequireDefault(_Rating);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30764,25 +30764,6 @@ var SingleTile = function (_React$Component) {
   _createClass(SingleTile, [{
     key: 'render',
     value: function render() {
-      // {
-      //   switch (this.props.person.rating) {
-      //     case '0':
-      //       return (
-      //         <div> zero </div>
-      //       )
-      //       break;
-      //     case '1':
-      //       return (
-      //         <div> jeden </div>
-      //       )
-      //       break;
-      //     case '2':
-      //       return (
-      //         <div> dwa </div>
-      //       )
-      //       break;
-      //   }
-      // }
 
       return _react2.default.createElement(
         'div',
@@ -30813,8 +30794,8 @@ var SingleTile = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              null,
-              'empty'
+              { className: 'rating' },
+              _react2.default.createElement(_Rating2.default, { stars: this.props.person.rating })
             ),
             _react2.default.createElement(
               'h6',
@@ -30975,7 +30956,7 @@ exports.default = SingleTile;
 
 module.exports = [
   {
-    picture: './dist/img/people.jpg',
+    picture: './dist/img/person1.png',
     verified: 'Jeden',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
     rating: '2',
@@ -30988,10 +30969,10 @@ module.exports = [
     price: '500zł',
   },
   {
-    picture: './dist/img/people.jpg',
+    picture: './dist/img/person2.jpg',
     verified: 'Dwa',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-    rating: '2',
+    rating: '5',
     title: 'programista',
     industry: 'IT - Rozwój oprogramowania',
     destination: 'Zdalnie',
@@ -31001,10 +30982,10 @@ module.exports = [
     price: '500zł',
   },
   {
-    picture: './dist/img/people.jpg',
+    picture: './dist/img/person3.jpg',
     verified: 'Trzy',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-    rating: '2',
+    rating: '1',
     title: 'programista',
     industry: 'IT - Rozwój oprogramowania',
     destination: 'Zdalnie',
@@ -31014,10 +30995,10 @@ module.exports = [
     price: '500zł',
   },
   {
-    picture: './dist/img/people.jpg',
+    picture: './dist/img/person4.jpg',
     verified: 'Cztery',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-    rating: '2',
+    rating: '0',
     title: 'programista',
     industry: 'IT - Rozwój oprogramowania',
     destination: 'Zdalnie',
@@ -31027,10 +31008,10 @@ module.exports = [
     price: '500zł',
   },
   {
-    picture: './dist/img/people.jpg',
+    picture: './dist/img/person5.jpg',
     verified: 'Pięć',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-    rating: '2',
+    rating: '5',
     title: 'programista',
     industry: 'IT - Rozwój oprogramowania',
     destination: 'Zdalnie',
@@ -31040,10 +31021,10 @@ module.exports = [
     price: '500zł',
   },
   {
-    picture: './dist/img/people.jpg',
+    picture: './dist/img/person1.png',
     verified: 'Sześć',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-    rating: '2',
+    rating: '3',
     title: 'programista',
     industry: 'IT - Rozwój oprogramowania',
     destination: 'Zdalnie',
@@ -31053,10 +31034,10 @@ module.exports = [
     price: '500zł',
   },
   {
-    picture: './dist/img/people.jpg',
+    picture: './dist/img/person2.jpg',
     verified: 'Siedem',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-    rating: '2',
+    rating: '4',
     title: 'programista',
     industry: 'IT - Rozwój oprogramowania',
     destination: 'Zdalnie',
@@ -31066,7 +31047,7 @@ module.exports = [
     price: '500zł',
   },
   {
-    picture: './dist/img/people.jpg',
+    picture: './dist/img/person3.jpg',
     verified: 'Osiem',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
     rating: '2',
@@ -31079,10 +31060,10 @@ module.exports = [
     price: '500zł',
   },
   {
-    picture: './dist/img/people.jpg',
+    picture: './dist/img/person4.jpg',
     verified: 'Dziewięć',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-    rating: '2',
+    rating: '0',
     title: 'programista',
     industry: 'IT - Rozwój oprogramowania',
     destination: 'Zdalnie',
@@ -31093,6 +31074,120 @@ module.exports = [
   }
 ]
 
+
+/***/ }),
+/* 222 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(8);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Rating = function (_React$Component) {
+  _inherits(Rating, _React$Component);
+
+  function Rating() {
+    _classCallCheck(this, Rating);
+
+    return _possibleConstructorReturn(this, (Rating.__proto__ || Object.getPrototypeOf(Rating)).apply(this, arguments));
+  }
+
+  _createClass(Rating, [{
+    key: 'render',
+    value: function render() {
+      switch (this.props.stars) {
+        case '1':
+          return _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement('img', { src: './dist/img/star.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star-grey.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star-grey.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star-grey.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star-grey.svg' })
+          );
+          break;
+        case '2':
+          return _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement('img', { src: './dist/img/star.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star-grey.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star-grey.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star-grey.svg' })
+          );
+          break;
+        case '3':
+          return _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement('img', { src: './dist/img/star.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star-grey.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star-grey.svg' })
+          );
+          break;
+        case '4':
+          return _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement('img', { src: './dist//img/star.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star-grey.svg' })
+          );
+
+          break;
+        case '5':
+          return _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement('img', { src: './dist/img/star.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star.svg' })
+          );
+          break;
+        default:
+          return _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement('img', { src: './dist/img/star-grey.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star-grey.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star-grey.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star-grey.svg' }),
+            _react2.default.createElement('img', { src: './dist/img/star-grey.svg' })
+          );
+          break;
+      }
+    }
+  }]);
+
+  return Rating;
+}(_react2.default.Component);
+
+exports.default = Rating;
 
 /***/ })
 /******/ ]);

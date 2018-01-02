@@ -43,6 +43,10 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+#app {
+  min-width: 560px;
+}
+
 @mixin btn {
   @include font-lato-regular;
   border: none;

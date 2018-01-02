@@ -1,27 +1,9 @@
 import React from 'react';
 import { Container, Row, Col, Nav, NavItem, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
+import Rating from '../Rating/Rating.jsx';
 
 class SingleTile extends React.Component {
   render(){
-    // {
-    //   switch (this.props.person.rating) {
-    //     case '0':
-    //       return (
-    //         <div> zero </div>
-    //       )
-    //       break;
-    //     case '1':
-    //       return (
-    //         <div> jeden </div>
-    //       )
-    //       break;
-    //     case '2':
-    //       return (
-    //         <div> dwa </div>
-    //       )
-    //       break;
-    //   }
-    // }
 
     return (
       <div className='tile'>
@@ -32,8 +14,8 @@ class SingleTile extends React.Component {
           <div className='content'>
             <h4>Profil zweryfikowany przez: <span>{this.props.person.verified}</span></h4>
             <p>{this.props.person.description}</p>
-            <div>
-              empty
+            <div className='rating'>
+              <Rating stars={this.props.person.rating} />
             </div>
             <h6>Średnia ocena: {this.props.person.rating}</h6>
           </div>

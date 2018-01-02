@@ -134,15 +134,13 @@ class MainSlider extends React.Component{
   render(){
     if (this.state.list) {
       return (
-        <Row style={{paddingTop: '5vh'}}>
+        <Row style={{paddingTop: '12%'}}>
           <Col md={1}></Col>
           <Col xs={12} md={10}>
             <div className='sliderMainContainer'>
               <div className='sliderMain'>
-                <div className='plate1'>
-                  <div className={`sliderItem tile1 slide${this.state.one}`}>
-                    <SingleTile person={this.state.list[tile1]}/>
-                  </div>
+                <div className={`sliderItem tile1 slide${this.state.one}`}>
+                  <SingleTile person={this.state.list[tile1]}/>
                 </div>
                 <div className={`sliderItem tile2 slide${this.state.two}`}>
                   <SingleTile person={this.state.list[tile2]}/>
