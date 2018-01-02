@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Nav, NavItem, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 import SingleTile from '../SingleTile/SingleTile.jsx';
 
+// variables changing slide generation based on object array;
 let tile5 = 4,
     tile1 = 0,
     tile2 = 1,
@@ -24,7 +25,9 @@ class MainSlider extends React.Component{
   }
 
   handleNext = () => {
-    const list = this.state.list;
+    const list = this.state.list
+
+    // updating visible slides: left - right (eg. 1 -5, 2 - 6 etc.)
     let slideLeft = Number(this.state.slideNumberLeft) - 1;
     let slideRight = Number(this.state.slideNumberRight) - 1;
 
@@ -36,7 +39,7 @@ class MainSlider extends React.Component{
       slideRight = list.length - 1;
     }
 
-    // changing current lefthand slide which is hidden
+    // generating new lefthand slide (which is yet hidden)
     switch (document.querySelector('.slide1').className) {
       case 'sliderItem tile2 slide1':
         tile2 = slideLeft;
@@ -128,31 +131,12 @@ class MainSlider extends React.Component{
 
   }
 
-  // making side slides clickable
-  //
-  // slidesAsButtons = () => {
-  //   document.querySelector('.slide4').addEventListener('click', () => {
-  //     this.handlePrev();
-  //     console.log('listener prev yes');
-  //     console.log(this.state.slideNumberRight, this.state.slideNumberLeft);
-  //   });
-  //
-  //   document.querySelector('.slide2').addEventListener('click', () => {
-  //     this.handleNext();
-  //     console.log('listener next yes');
-  //   });
-  // }
-
-  // componentDidMount() {
-  //   this.slidesAsButtons();
-  // }
-
   render(){
     if (this.state.list) {
       return (
         <Row style={{paddingTop: '5vh'}}>
-          <Col xs={1}></Col>
-          <Col xs={10}>
+          <Col md={1}></Col>
+          <Col xs={12} md={10}>
             <div className='sliderMainContainer'>
               <div className='sliderMain'>
                 <div className='plate1'>
@@ -177,7 +161,7 @@ class MainSlider extends React.Component{
               <div className='arrow-right' onClick={this.handleNext}></div>
             </div>
           </Col>
-          <Col xs={1}></Col>
+          <Col md={1}></Col>
         </Row>
       )
     } else {

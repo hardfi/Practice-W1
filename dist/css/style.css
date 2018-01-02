@@ -444,12 +444,21 @@ body {
     width: 69px;
     height: 69px;
     z-index: 1049; }
+    @media (max-width: 767px) {
+      .sliderMainContainer .arrow-left, .sliderMainContainer .arrow-right {
+        top: 100%; } }
   .sliderMainContainer .arrow-left {
     left: -12%;
     background: url("../img/left.svg") center center/cover no-repeat; }
+    @media (max-width: 767px) {
+      .sliderMainContainer .arrow-left {
+        left: 30%; } }
   .sliderMainContainer .arrow-right {
     right: -12%;
     background: url("../img/right.svg") center center/cover no-repeat; }
+    @media (max-width: 767px) {
+      .sliderMainContainer .arrow-right {
+        right: 30%; } }
 
 .modal.show {
   align-items: center !important;

@@ -57,15 +57,27 @@
     width: 69px;
     height: 69px;
     z-index: 1049;
+
+    @media(max-width: 767px){
+      top: 100%;
+    }
   }
 
   .arrow-left {
     left: -12%;
     background: url('../img/left.svg') center center /cover no-repeat;
+
+    @media(max-width: 767px){
+      left: 30%;
+    }
   }
 
   .arrow-right {
     right: -12%;
     background: url('../img/right.svg') center center /cover no-repeat;
+
+    @media(max-width: 767px){
+      right: 30%;
+    }
   }
 }

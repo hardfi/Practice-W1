@@ -30139,6 +30139,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+// variables changing slide generation based on object array;
 var tile5 = 4,
     tile1 = 0,
     tile2 = 1,
@@ -30155,6 +30156,8 @@ var MainSlider = function (_React$Component) {
 
     _this.handleNext = function () {
       var list = _this.state.list;
+
+      // updating visible slides: left - right (eg. 1 -5, 2 - 6 etc.)
       var slideLeft = Number(_this.state.slideNumberLeft) - 1;
       var slideRight = Number(_this.state.slideNumberRight) - 1;
 
@@ -30166,7 +30169,7 @@ var MainSlider = function (_React$Component) {
         slideRight = list.length - 1;
       }
 
-      // changing current lefthand slide which is hidden
+      // generating new lefthand slide (which is yet hidden)
       switch (document.querySelector('.slide1').className) {
         case 'sliderItem tile2 slide1':
           tile2 = slideLeft;
@@ -30272,36 +30275,15 @@ var MainSlider = function (_React$Component) {
 
   _createClass(MainSlider, [{
     key: 'render',
-
-
-    // making side slides clickable
-    //
-    // slidesAsButtons = () => {
-    //   document.querySelector('.slide4').addEventListener('click', () => {
-    //     this.handlePrev();
-    //     console.log('listener prev yes');
-    //     console.log(this.state.slideNumberRight, this.state.slideNumberLeft);
-    //   });
-    //
-    //   document.querySelector('.slide2').addEventListener('click', () => {
-    //     this.handleNext();
-    //     console.log('listener next yes');
-    //   });
-    // }
-
-    // componentDidMount() {
-    //   this.slidesAsButtons();
-    // }
-
     value: function render() {
       if (this.state.list) {
         return _react2.default.createElement(
           _reactstrap.Row,
           { style: { paddingTop: '5vh' } },
-          _react2.default.createElement(_reactstrap.Col, { xs: 1 }),
+          _react2.default.createElement(_reactstrap.Col, { md: 1 }),
           _react2.default.createElement(
             _reactstrap.Col,
-            { xs: 10 },
+            { xs: 12, md: 10 },
             _react2.default.createElement(
               'div',
               { className: 'sliderMainContainer' },
@@ -30342,7 +30324,7 @@ var MainSlider = function (_React$Component) {
               _react2.default.createElement('div', { className: 'arrow-right', onClick: this.handleNext })
             )
           ),
-          _react2.default.createElement(_reactstrap.Col, { xs: 1 })
+          _react2.default.createElement(_reactstrap.Col, { md: 1 })
         );
       } else {
         return null;
